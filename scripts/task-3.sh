@@ -22,4 +22,6 @@ gcloud iam service-accounts keys create m4a-ce-src.json \
   --iam-account=m4a-ce-src@$PROJECT_ID.iam.gserviceaccount.com
 
 # create the migration source
-migctl source create compute-engine $SOURCE_NAME --json-key=m4a-ce-src.json
+migctl source create compute-engine $SOURCE_NAME \
+  --json-key=m4a-ce-src.json \
+  --project=$PROJECT_ID
