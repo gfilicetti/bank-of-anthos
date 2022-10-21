@@ -13,4 +13,6 @@ VM_NAME=ledgermonolith-service
 migctl migration create $JOB_NAME --source $SOURCE_NAME --vm-id $VM_NAME
 
 # quickly check on the status, you can keep running this until it's good
+printf 'Checking status with this command line:\n'
+printf "> migctl migration status $JOB_NAME\n"
 migctl migration status $JOB_NAME
