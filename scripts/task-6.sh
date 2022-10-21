@@ -9,22 +9,8 @@ CE_SRC=m4a-ce-src
 JOB_NAME=ledgermonolith-migration
 VM_NAME=ledgermonolith-service
 
-# download the migration plan
-# migctl migration get $JOB_NAME
-
-# edit $JOB_NAME.yaml and add at the end: 
-# dataVolumes:
-#   - folders:
-#     - /var/lib/postgresql
-cat <<EOF >> $JOB_NAME.yaml
-dataVolumes:
-  - folders:
-    - /var/lib/postgresql
-EOF
-exit 0
-
-# update the revised plan
-migctl migration update $JOB_NAME --file $JOB_NAME.yaml
+# now generate artifacts
+migctl migration generate-artifacts $JOB_NAME
 
 # check status once before we finish
 printf 'Checking status with this command line:\n'
