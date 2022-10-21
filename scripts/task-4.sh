@@ -11,3 +11,6 @@ VM_NAME=ledgermonolith-service
 
 # run a migration job that we just set up
 migctl migration create $JOB_NAME --source $SOURCE_NAME --vm-id $VM_NAME
+
+# quickly check on the status, you can keep running this until it's good
+migctl migration status $JOB_NAME
