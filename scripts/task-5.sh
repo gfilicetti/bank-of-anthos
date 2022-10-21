@@ -21,3 +21,11 @@ printf 'edit yaml here...\n'
 
 # update the revised plan
 migctl migration update $JOB_NAME --file $JOB_NAME.yaml
+
+# now generate artifacts
+migctl migration generate-artifacts $JOB_NAME
+
+# check status once before we finish
+printf 'Checking status with this command line:\n'
+printf "> migctl migration status $JOB_NAME\n"
+migctl migration status $JOB_NAME
