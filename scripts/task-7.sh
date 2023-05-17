@@ -11,6 +11,10 @@ VM_NAME=ledgermonolith-service
 PROD_CLUSTER_NAME=cymbal-monolith-cluster
 ARTIFACT_DIR=artifacts
 
+# NOTE !!!!!!!!!!!!!!
+# You might need to make the Container Registry public if you're getting ImageBackOff errors
+# -------------------
+
 # get credential for the processing cluster so we can use migctl
 gcloud container clusters get-credentials $CLUSTER_NAME \
   --project=$PROJECT_ID --zone=$ZONE

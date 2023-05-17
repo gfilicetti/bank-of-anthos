@@ -16,12 +16,16 @@ VM_NAME=ledgermonolith-service
 # download the migration plan
 migctl migration get $JOB_NAME
 
+# NOTE!!!!!!!!!!!!!!!!!!!!
+# I've commented out the modification of the yaml file because it seems to already
+# have this block of text at the bottom. Double check this please.
+# ------------------------
 # edit $JOB_NAME.yaml and our data volumes to the end
-cat <<EOF >> $JOB_NAME.yaml
-  dataVolumes:
-    - folders:
-      - /var/lib/postgresql
-EOF
+# cat <<EOF >> $JOB_NAME.yaml
+#   dataVolumes:
+#     - folders:
+#       - /var/lib/postgresql
+# EOF
 
 # update the revised plan
 migctl migration update $JOB_NAME --main-config $JOB_NAME.yaml

@@ -16,3 +16,8 @@ migctl migration generate-artifacts $JOB_NAME
 printf 'Checking status with this command line:\n'
 printf "> migctl migration status $JOB_NAME\n"
 migctl migration status $JOB_NAME
+
+# NOTE!!!!!!!!!!!!!!!!!!!
+# Keep running migration status check until you see Status: Completed
+# This needs to be finished before moving to the next step.
+# -----------------------   
