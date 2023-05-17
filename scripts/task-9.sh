@@ -4,7 +4,7 @@
 PROJECT_ID=$(gcloud config get-value project)
 ZONE=us-central1-a
 GSR_REPO_NAME=cymbal-bank-repo
-GSR_REPO_URL=xxxxxxxcymbal-bank-repo
+GSR_REPO_URL=ssh://admin@ginof.altostrat.com@source.developers.google.com:2022/p/l300-appmod-lab/r/cymbal-bank-repo
 GSR_REMOTE_NAME=gsr
 GITHUB_REPO_URL=https://github.com/GoogleCloudPlatform/bank-of-anthos.git
 APP_NAME=cymbal-bank
