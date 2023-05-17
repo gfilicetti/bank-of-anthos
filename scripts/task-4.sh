@@ -9,6 +9,10 @@ CE_SRC=m4a-ce-src
 JOB_NAME=ledgermonolith-migration
 VM_NAME=ledgermonolith-service
 
+# NOTE!!!!!!!!!!!!!!!!!!!
+# Make sure that you stop the Ledger Monolith compute instance before starting the migration job.
+# -----------------------
+
 # run a migration job that we just set up
 migctl migration create $JOB_NAME --source $SOURCE_NAME --vm-id $VM_NAME
 

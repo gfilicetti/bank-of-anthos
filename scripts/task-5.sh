@@ -9,6 +9,10 @@ CE_SRC=m4a-ce-src
 JOB_NAME=ledgermonolith-migration
 VM_NAME=ledgermonolith-service
 
+# NOTE!!!!!!!!!!!!!!!!!!!
+# Check migration status and wait until you see it as Status: Completed
+# -----------------------
+
 # download the migration plan
 migctl migration get $JOB_NAME
 
@@ -20,7 +24,7 @@ cat <<EOF >> $JOB_NAME.yaml
 EOF
 
 # update the revised plan
-migctl migration update $JOB_NAME --file $JOB_NAME.yaml
+migctl migration update $JOB_NAME --main-config $JOB_NAME.yaml
 
 # check status once before we finish
 printf 'Checking status with this command line:\n'

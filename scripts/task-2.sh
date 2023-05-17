@@ -27,3 +27,8 @@ migctl setup install --json-key=m4a-install.json
 # confirm setup
 printf 'Running migctl doctor to confirm deployment\n'
 migctl doctor
+
+# NOTE!!!!!!!!!!!!!!!!!!!!!!!
+# Keep running migctl doctor until everything but "Source" has a green check
+# Source will have a red check until we do Task 3
+# ---------------------------

@@ -26,3 +26,7 @@ gcloud iam service-accounts keys create $CE_SRC.json \
 migctl source create compute-engine $SOURCE_NAME \
   --json-key=$CE_SRC.json \
   --project=$PROJECT_ID
+
+# confirm setup
+printf 'Running migctl doctor to confirm deployment\n'
+migctl doctor
