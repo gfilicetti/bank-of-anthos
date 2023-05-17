@@ -13,7 +13,7 @@ APP_NAME=cymbal-bank
 gcloud source repos create $GSR_REPO_NAME
 
 # get the URL of the new source repo
-GSR_REPO_URL=$(gcloud source repos describe ${GSR_REPO_NAME} --format=json | jq .url)
+GSR_REPO_URL=$(gcloud source repos describe ${GSR_REPO_NAME} --format=json | jq -r .url)
 printf "The new repo url is: ${GSR_REPO_URL}\n"
 
 # clone Bank app code repo
