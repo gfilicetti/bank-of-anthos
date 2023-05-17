@@ -39,3 +39,8 @@ kubectl rollout restart deployment ledgerwriter
 kubectl rollout restart deployment loadgenerator
 kubectl rollout restart deployment transactionhistory
 kubectl rollout restart deployment userservice
+
+# NOTE !!!!!!!!!!!!!!!!!!!!!!!!!
+# Make sure to look at all the pods to see if they actually restarted.
+# Restart manually any that weren't part of these deployments
+# -------------------------------
