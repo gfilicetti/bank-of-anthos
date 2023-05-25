@@ -22,8 +22,8 @@ gcloud container clusters get-credentials $GKE_PROD_CLUSTER_NAME \
   --project=$PROJECT_ID --zone=$ZONE
 
 # move in the manually created v1 of the deployment
-mv ../kubernetes-manifests/frontend.yaml kubernetes-manifests/frontend.orig.yaml 
-cp ../kubernetes-manifests/frontend.v1.yaml kubernetes-manifests/frontend.yaml 
+mv ../kubernetes-manifests/frontend.yaml ../kubernetes-manifests/frontend.yaml.orig
+cp ../kubernetes-manifests/frontend.yaml.v1 ../kubernetes-manifests/frontend.yaml 
 
 # deploy the application to the cluster
 kubectl apply -f ../extras/jwt/jwt-secret.yaml
