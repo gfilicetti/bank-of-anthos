@@ -4,7 +4,7 @@
 PROJECT_ID=$(gcloud config get-value project)
 PROJECT_NUM=$(gcloud projects describe ${PROJECT_ID} --format json | jq -r .projectNumber)
 ZONE=us-central1-a
-CLOUD_BUILD_SA='${PROJECT_NUM}@cloudbuild.gserviceaccount.com'
+CLOUD_BUILD_SA="${PROJECT_NUM}@cloudbuild.gserviceaccount.com"
 GKE_PROD_CLUSTER_NAME=cymbal-bank-prod
 GKE_PROD_NODES=4
 CHANNEL=stable
