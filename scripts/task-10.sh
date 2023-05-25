@@ -15,4 +15,4 @@ gcloud container clusters create $GKE_PROD_CLUSTER_NAME \
   --machine-type=$NODE_VM_TYPE --num-nodes=$GKE_PROD_NODES \
   --release-channel=$CHANNEL --cluster=version=$CP_VERSION \
   --monitoring=SYSTEM --logging=SYSTEM,WORKLOAD --subnetwork=default \
-  --tags=$CLUSTER_NAME --labels csm=
+  --tags=$GKE_PROD_CLUSTER_NAME --labels csm=
