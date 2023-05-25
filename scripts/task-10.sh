@@ -16,3 +16,20 @@ gcloud container clusters create $GKE_PROD_CLUSTER_NAME \
   --release-channel=$CHANNEL --cluster-version=$CP_VERSION \
   --monitoring=SYSTEM --logging=SYSTEM,WORKLOAD --subnetwork=default \
   --tags=$GKE_PROD_CLUSTER_NAME --labels csm=
+
+# get kubectl context for this cluster
+gcloud container clusters get-credentials $GKE_PROD_CLUSTER_NAME \
+  --project=$PROJECT_ID --zone=$ZONE
+
+# move in the manually created v1 of the deployment
+mv kubernetes-manifests/frontend.yaml kubernetes-manifests/frontend.orig.yaml 
+cp kubernetes-manifests/frontend.v1.yaml kubernetes-manifests/frontend.yaml 
+
+# deploy the application to the cluster
+kubectl apply -f ../extras/jwt/jwt-secret.yaml
+kubectl apply -f ../kubernetes-manifests
+
+# NOTE !!!!!!!!!!!!
+# Run 'kubectl get pods' and make sure they're all started
+# Then run "kubectl get service frontend | awk '{print $4}'" to get the IP address
+# ------------------
