@@ -2,7 +2,7 @@
 ## Gino's ignores
 ##############################
 *.json
-*.yaml
+#*.yaml
 
 *.swo
 *.swp

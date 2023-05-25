@@ -13,6 +13,6 @@ NODE_VM_TYPE=e2-standard-4
 gcloud container clusters create $GKE_PROD_CLUSTER_NAME \
   --project=$PROJECT_ID --zone=$ZONE \
   --machine-type=$NODE_VM_TYPE --num-nodes=$GKE_PROD_NODES \
-  --release-channel=$CHANNEL --cluster=version=$CP_VERSION \
+  --release-channel=$CHANNEL --cluster-version=$CP_VERSION \
   --monitoring=SYSTEM --logging=SYSTEM,WORKLOAD --subnetwork=default \
   --tags=$GKE_PROD_CLUSTER_NAME --labels csm=
