@@ -8,6 +8,7 @@ CLOUD_BUILD_SA="serviceAccount:${PROJECT_NUM}@cloudbuild.gserviceaccount.com"
 GKE_PROD_CLUSTER_NAME=cymbal-bank-prod
 GSR_REPO_NAME=cymbal-bank-repo
 TRIGGER_NAME="deploy-cymbal-k8s"
+BUILD_CONFIG_FILE="cloud-build.yaml"
 
 # give cloud build SA permissions to deploy to GKE
 gcloud projects add-iam-policy-binding $PROJECT_ID \
@@ -20,7 +21,7 @@ gcloud projects add-iam-policy-binding $PROJECT_ID \
 
 # set up the cloud build trigger to run on everything that gets checked into main
 gcloud builds triggers create cloud-source-repositories --name=$TRIGGER_NAME \
-  --build-config="cloud-build.yaml" \
+  --build-config=$BUILD_CONFIG_FILE \
   --repo=$GSR_REPO_NAME \
   --branch-pattern="^main$"
 
