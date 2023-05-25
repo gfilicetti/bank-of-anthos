@@ -1,0 +1,11 @@
+steps:
+- name: 'gcr.io/cloud-builders/kubectl'
+  args: ['get', 'pods']
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=cymbal-bank-prod'
+- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+  args: ['get', 'services']
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=cymbal-bank-prod'
