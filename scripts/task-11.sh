@@ -29,6 +29,10 @@ gcloud builds triggers create cloud-source-repositories --name=$TRIGGER_NAME \
   --repo=$GSR_REPO_NAME \
   --branch-pattern="^main$"
 
+# NOTE !!!!!!!!!!!!!!!!!!!!
+# Make sure that the v1 version of frontend.yaml is in the GSR or it will fail
+# --------------------------
+
 
 
 # GKE_PROD_NODES=4
