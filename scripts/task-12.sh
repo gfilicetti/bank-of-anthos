@@ -4,7 +4,7 @@
 PROJECT_ID=$(gcloud config get-value project)
 ZONE=us-central1-a
 GKE_DEV_CLUSTER_NAME=cymbal-bank-dev
-GKE_DEV_NODES=4
+GKE_DEV_NODES=2
 CHANNEL=stable
 CP_VERSION=1.23
 NODE_VM_TYPE=e2-standard-4
