@@ -16,8 +16,13 @@ BUILD_CONFIG_FILE="cloud-build-dev.yaml"
 #   --member="${CLOUD_BUILD_SA}" \
 #   --role="roles/container.admin"
 
+# You need to create a 'cymbal-dev' branch on the GSR repo
+# git checkout -b cymbal-dev --track origin/cymbal-dev
+# git push
+
 # NOTE !!!!!!!!!!!!!!!!!!!!
 # Make sure that cloud-build-dev.yaml is in the root of the GSR repo or this trigger won't find it
+# Make sure that cloud-build-dev.yaml is on the cymbal-dev branch
 # --------------------------
 
 # set up the cloud build trigger to run on everything that gets checked into main
