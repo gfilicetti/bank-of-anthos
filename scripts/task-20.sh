@@ -28,5 +28,6 @@ kubectl label namespace $GW_NAMESPACE istio-injection- istio.io/rev=$ISTIO_REV -
 # deploy the gateway ingress controller using files that were created during ASM installation
 kubectl apply -n $GW_NAMESPACE -f $INGRESS_GW_DIR 
 
-# enable traffic management by creating a Gateway and a VirtualService
-kubectl apply -n $GW_NAMESPACE -f $FE_INGRESS_FILE 
+# enable traffic management by creating a Gateway and a VirtualService 
+# (must be to the default namespace where everything else is)
+kubectl apply -f $FE_INGRESS_FILE 
