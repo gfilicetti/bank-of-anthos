@@ -15,4 +15,4 @@ function join_by { local IFS="$1"; shift; echo "$*"; }
 gcloud container clusters get-credentials $GKE_PROD_CLUSTER_NAME \
   --project=$PROJECT_ID --zone=$ZONE
 
-kubectl create configmap $CONFIG_MAP_NAME -n istio-system --from-file < (echo '{"data":{"multicluster_mode":"connected"}}')
+kubectl create configmap $CONFIG_MAP_NAME -n istio-system --from-file <(echo '{"data":{"multicluster_mode":"connected"}}')
