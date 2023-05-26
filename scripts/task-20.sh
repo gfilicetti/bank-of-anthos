@@ -5,9 +5,8 @@ PROJECT_ID=$(gcloud config get-value project)
 ZONE=us-central1-a
 GKE_PROD_CLUSTER_NAME=cymbal-bank-prod
 GKE_DEV_CLUSTER_NAME=cymbal-bank-dev
-CONTEXT_PROD=gke_l300-appmod-lab_us-central1-a_cymbal-bank-prod
-CONTEXT_DEV=gke_l300-appmod-lab_us-central1-a_cymbal-bank-dev
 GW_NAMESPACE=gateway-namespace
+ISTIO_REV=asm-1172-1
 INGRESS_GW_DIR=../asm/samples/gateways/istio-ingressgateway 
 FE_INGRESS_FILE=frontend-ingress.yaml
 
@@ -23,8 +22,11 @@ gcloud container clusters get-credentials $GKE_PROD_CLUSTER_NAME \
 # create a namespace for the istio gateway
 kubectl create namespace $GW_NAMESPACE
 
-# deploy the gateway ingress controller using a file that was creating during ASM installation
-kubectl apply -f $INGRESS_GW_DIR -n $GW_NAMESPACE
+# label the namespace for injection, just like we did in Task 16
+kubectl label namespace $GW_NAMESPACE istio-injection- istio.io/rev=$ISTIO_REV --overwrite
+
+# deploy the gateway ingress controller using files that were created during ASM installation
+kubectl apply -n $GW_NAMESPACE -f $INGRESS_GW_DIR 
 
 # enable traffic management by creating a Gateway and a VirtualService
-kubectl apply -f $FE_INGRESS_FILE -n $GW_NAMESPACE
+kubectl apply -n $GW_NAMESPACE -f $FE_INGRESS_FILE 
