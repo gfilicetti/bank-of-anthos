@@ -34,3 +34,7 @@ PRIV_IP_DEV=`gcloud container clusters describe "${GKE_DEV_CLUSTER_NAME}" \
   --zone "${ZONE}" --format "value(privateClusterConfig.privateEndpoint)"`
 
 ../asm/istioctl x create-remote-secret --context=${CONTEXT_DEV} --name=${GKE_DEV_CLUSTER_NAME} --server=https://${PRIV_IP_DEV} > ${CONTEXT_DEV}.secret
+
+# apply the remove secrets
+kubectl apply -f ${CONTEXT_PROD}.secret --context=${CONTEXT_DEV}
+kubectl apply -f ${CONTEXT_DEV}.secret --context=${CONTEXT_PROD}
