@@ -11,8 +11,16 @@ CONFIG_MAP_NAME=asm-options
 # needed when getting CIDRS
 function join_by { local IFS="$1"; shift; echo "$*"; }
 
-# get kubectl context for this cluster
+# get kubectl context for prod
 gcloud container clusters get-credentials $GKE_PROD_CLUSTER_NAME \
   --project=$PROJECT_ID --zone=$ZONE
 
+# create the configmap for multicluster
+kubectl create configmap $CONFIG_MAP_NAME -n istio-system --from-file <(echo '{"data":{"multicluster_mode":"connected"}}')
+
+# get kubectl context for dev
+gcloud container clusters get-credentials $GKE_DEV_CLUSTER_NAME \
+  --project=$PROJECT_ID --zone=$ZONE
+
+# create the configmap for multicluster
 kubectl create configmap $CONFIG_MAP_NAME -n istio-system --from-file <(echo '{"data":{"multicluster_mode":"connected"}}')
