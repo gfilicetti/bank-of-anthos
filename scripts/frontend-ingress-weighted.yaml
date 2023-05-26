@@ -42,11 +42,11 @@ spec:
         host: frontend
         port:
           number: 80
-        subset: v1
+        subset: production
       weight: 75
     - destination:
         host: frontend
         port:
           number: 80
-        subset: v2
+        subset: development
       weight: 25
