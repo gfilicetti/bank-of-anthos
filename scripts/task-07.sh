@@ -12,7 +12,8 @@ PROD_CLUSTER_NAME=cymbal-monolith-cluster
 ARTIFACT_DIR=artifacts
 
 # NOTE !!!!!!!!!!!!!!
-# You might need to make the Container Registry public if you're getting ImageBackOff errors
+# Once Step 6 is fully complete, go to Container Registry in the Console, go to Settings and make it public
+# Otherwise you'll get ImageBackOff errors
 # -------------------
 
 # get credential for the processing cluster so we can use migctl
