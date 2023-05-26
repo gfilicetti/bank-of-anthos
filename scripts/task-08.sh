@@ -31,14 +31,8 @@ EOF
 # apply the config map
 kubectl apply -f $CONFIGMAP_NAME.yaml
 
-# stop all application deployments to have the pods restart themselves
-kubectl rollout restart deployment balancereader
-kubectl rollout restart deployment contacts
-kubectl rollout restart deployment frontend
-kubectl rollout restart deployment ledgerwriter
-kubectl rollout restart deployment loadgenerator
-kubectl rollout restart deployment transactionhistory
-kubectl rollout restart deployment userservice
+# restart all application deployments to have the pods restart themselves
+kubectl rollout restart deployment
 
 # NOTE !!!!!!!!!!!!!!!!!!!!!!!!!
 # Make sure to look at all the pods to see if they actually restarted.

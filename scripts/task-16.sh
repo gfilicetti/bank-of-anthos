@@ -31,11 +31,4 @@ gcloud container clusters get-credentials $GKE_DEV_CLUSTER_NAME \
 kubectl label namespace $NAMESPACE istio-injection- istio.io/rev=$ISTIO_REV --overwrite
 
 # restart all pods
-kubectl rollout restart deployment balancereader
-kubectl rollout restart deployment contacts
-kubectl rollout restart deployment frontend
-kubectl rollout restart deployment ledgerwriter
-kubectl rollout restart deployment loadgenerator
-kubectl rollout restart deployment transactionhistory
-kubectl rollout restart deployment userservice
-
+kubectl rollout restart deployment
