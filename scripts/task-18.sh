@@ -18,10 +18,10 @@ CONTEXT_DEV=gke_l300-appmod-lab_us-central1-a_cymbal-bank-dev
 function join_by { local IFS="$1"; shift; echo "$*"; }
 
 # create the configmap for multicluster on prod
-kubectl --context=$CONTEXT_PROD create configmap $CONFIG_MAP_NAME -n istio-system --from-file <(echo '{"data":{"multicluster_mode":"connected"}}')
+kubectl --context=$CONTEXT_PROD create configmap $CONFIG_MAP_NAME -n istio-system --from-literal multicluster_mode=connected
 
 # create the configmap for multicluster on dev
-kubectl --context=$CONTEXT_DEV create configmap $CONFIG_MAP_NAME -n istio-system --from-file <(echo '{"data":{"multicluster_mode":"connected"}}')
+kubectl --context=$CONTEXT_DEV create configmap $CONFIG_MAP_NAME -n istio-system --from-literal multicluster_mode=connected
 
 # create remote secret for prod
 PRIV_IP_PROD=`gcloud container clusters describe "${GKE_PROD_CLUSTER_NAME}" \
@@ -35,6 +35,6 @@ PRIV_IP_DEV=`gcloud container clusters describe "${GKE_DEV_CLUSTER_NAME}" \
 
 ../asm/istioctl x create-remote-secret --context=${CONTEXT_DEV} --name=${GKE_DEV_CLUSTER_NAME} --server=https://${PRIV_IP_DEV} > ${CONTEXT_DEV}.secret
 
-# apply the remove secrets
+# apply the remote secrets
 kubectl apply -f ${CONTEXT_PROD}.secret --context=${CONTEXT_DEV}
 kubectl apply -f ${CONTEXT_DEV}.secret --context=${CONTEXT_PROD}
