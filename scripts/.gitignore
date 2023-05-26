@@ -1,2 +1,3 @@
 artifacts
-cymbal_bank
+*.secret
+ledger*.yaml
