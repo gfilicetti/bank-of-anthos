@@ -5,7 +5,6 @@ PROJECT_ID=$(gcloud config get-value project)
 ZONE=us-central1-a
 GKE_PROD_CLUSTER_NAME=cymbal-bank-prod
 GKE_DEV_CLUSTER_NAME=cymbal-bank-dev
-NAMESPACE=default
 NETWORK=default
 FW_RULE_NAME=allow-istio
 
