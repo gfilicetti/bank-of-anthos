@@ -21,18 +21,19 @@ GSR_REPO_URL=$(gcloud source repos describe ${GSR_REPO_NAME} --format=json | jq 
 
 # clone Bank app from the GSR repo into a sibling folder to the github version
 git clone $GSR_REPO_URL $GSR_REPO_DIR
+cd $GSR_REPO_DIR
+git checkout main
 
 # copy cloud-build.yaml to the root of the GSR repo
-cp cloud-build.yml $GSR_REPO_DIR
+cp ../cloud-build.yaml .
 
 # copy the v1 version of frontend.yaml to the kubernetes-manifest folder in the GSR repo
-cp ../kubernetes-manifests/frontend.yaml.v1 $GSR_REPO_DIR/kubernetes-manifests/frontend.yaml
+cp ../../kubernetes-manifests/frontend.yaml.v1 ./kubernetes-manifests/frontend.yaml
 
 # add, commit and push these new files
-cd $GSR_REPO_DIR
 git add *
 git commit -m "Adding cloud build file and the v1 of the frontend deployment yaml"
-git push
+git push --set-upstream origin main
 cd ..
 
 # NOTE !!!!!!!!!!!!!!!!!!!!
