@@ -25,7 +25,7 @@ cd $GSR_REPO_DIR
 git checkout main
 
 # copy cloud-build.yaml to the root of the GSR repo
-cp ../cloud-build.yaml .
+cp ../$BUILD_CONFIG_FILE .
 
 # copy the v1 version of frontend.yaml to the kubernetes-manifest folder in the GSR repo
 cp ../../kubernetes-manifests/frontend.yaml.v1 ./kubernetes-manifests/frontend.yaml
