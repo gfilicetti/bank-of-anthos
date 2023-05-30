@@ -20,8 +20,7 @@ BUILD_CONFIG_FILE="cloud-build-dev.yaml"
 
 # Create a 'cymbal-dev' branch on the GSR repo
 cd $GSR_REPO_DIR
-git checkout -b $GSR_BRANCH_NAME --track origin/$GSR_BRANCH_NAME
-git push
+git checkout -b $GSR_BRANCH_NAME
 
 # copy cloud-build.yaml to the root of the GSR repo
 cp ../$BUILD_CONFIG_FILE .
@@ -32,7 +31,7 @@ cp ../../kubernetes-manifests/frontend.yaml.v2 ./kubernetes-manifests/frontend.y
 # add, commit and push these new files
 git add *
 git commit -m "Adding dev version of cloud build yaml and v2 of frontend"
-git push
+git push --set-upstream origin $GSR_BRANCH_NAME
 cd ..
 
 # NOTE !!!!!!!!!!!!!!!!!!!!
