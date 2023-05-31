@@ -6,8 +6,8 @@ ZONE=us-central1-a
 GKE_PROD_CLUSTER_NAME=cymbal-bank-prod
 GKE_DEV_CLUSTER_NAME=cymbal-bank-dev
 CONFIG_MAP_NAME=asm-options
-CONTEXT_PROD=gke_l300-appmod-lab-dryrun-1_us-central1-a_cymbal-bank-prod
-CONTEXT_DEV=gke_l300-appmod-lab-dryrun-1_us-central1-a_cymbal-bank-dev
+CONTEXT_PROD=gke_qwiklabs-gcp-02-7f381c0aae13_us-central1-a_cymbal-bank-prod
+CONTEXT_DEV=gke_qwiklabs-gcp-02-7f381c0aae13_us-central1-a_cymbal-bank-dev
 
 # NOTE !!!!!!!!!!!!!!!!!!!!!!
 # Use this command to list out all the contexts in your kube config
