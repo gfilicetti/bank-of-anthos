@@ -5,11 +5,17 @@ PROJECT_ID=$(gcloud config get-value project)
 ZONE=us-central1-a
 GKE_DEV_CLUSTER_NAME=cymbal-bank-dev
 OUTPUT_DIR=../asm
+ASMCLI_INSTALL_URL=https://storage.googleapis.com/csm-artifacts/asm/asmcli_1.16 
+ASMCLI_CMD=./asmcli
 ISTIO_REV=asm-1172-1
 NAMESPACE=default
 
-# install ASM on the production cluster
-asmcli install \
+# download asmcli fresh to use it
+curl $ASMCLI_INSTALL_URL > $ASMCLI_CMD
+chmod 755 $ASMCLI_CMD
+
+# install ASM on the development cluster
+$ASMCLI_CMD install \
   --project_id $PROJECT_ID \
   --cluster_name $GKE_DEV_CLUSTER_NAME \
   --cluster_location $ZONE \
