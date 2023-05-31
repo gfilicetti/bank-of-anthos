@@ -8,6 +8,11 @@ ZONE=us-central1-a
 CONTEXT_PROD=gke_l300-appmod-lab_us-central1-a_cymbal-bank-prod
 CONTEXT_DEV=gke_l300-appmod-lab_us-central1-a_cymbal-bank-dev
 
+# NOTE !!!!!!!!!!!!!!!!!!!!!!
+# Use this command to list out all the contexts in your kube config
+# kubectl config get-contexts --output name
+# ---------------------------
+
 # stop all application deployments to have the pods restart themselves
 kubectl --context=$CONTEXT_PROD rollout restart deployment
 kubectl --context=$CONTEXT_DEV rollout restart deployment

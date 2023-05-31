@@ -10,11 +10,6 @@ ISTIO_REV=asm-1172-1
 INGRESS_GW_DIR=../asm/samples/gateways/istio-ingressgateway 
 FE_INGRESS_FILE=frontend-ingress.yaml
 
-# NOTE !!!!!!!!!!!!!!!!!!!!!!
-# Use this command to list out all the contexts in your kube config
-# kubectl config get-contexts --output name
-# ---------------------------
-
 # get kubectl context for this cluster
 gcloud container clusters get-credentials $GKE_PROD_CLUSTER_NAME \
   --project=$PROJECT_ID --zone=$ZONE
