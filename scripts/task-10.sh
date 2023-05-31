@@ -29,6 +29,9 @@ cp ../kubernetes-manifests/frontend.yaml.v1 ../kubernetes-manifests/frontend.yam
 kubectl apply -f ../extras/jwt/jwt-secret.yaml
 kubectl apply -f ../kubernetes-manifests
 
+# move the original back
+mv ../kubernetes-manifests/frontend.yaml.orig ../kubernetes-manifests/frontend.yaml
+
 # NOTE !!!!!!!!!!!!
 # Run 'kubectl get pods' and make sure they're all started
 # Then run "kubectl get service frontend | awk '{print $4}'" to get the IP address
