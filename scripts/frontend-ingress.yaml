@@ -42,4 +42,3 @@ spec:
         host: frontend
         port:
           number: 80
-        subset: production
