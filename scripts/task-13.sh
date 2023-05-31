@@ -28,6 +28,12 @@ cp ../$BUILD_CONFIG_FILE .
 # copy the v2 version of frontend.yaml to the kubernetes-manifest folder in the GSR repo
 cp ../../kubernetes-manifests/frontend.yaml.v2 ./kubernetes-manifests/frontend.yaml
 
+# NOTE !!!!!!!!!!!!!!!!!!!
+# You need to have a valid gitconfig with name and email already set up. Run can run these commands first:
+# git config --global user.email "you@example.com"
+# git config --global user.name "Your Name"
+# ------------------------
+
 # add, commit and push these new files
 git add *
 git commit -m "Adding dev version of cloud build yaml and v2 of frontend"
