@@ -6,7 +6,7 @@ ZONE=us-central1-a
 GKE_PROD_CLUSTER_NAME=cymbal-bank-prod
 OUTPUT_DIR=../asm
 ASMCLI_INSTALL_URL=https://storage.googleapis.com/csm-artifacts/asm/asmcli_1.16 
-ASMCLI_CMD=asmcli
+ASMCLI_CMD=./asmcli
 
 # download asmcli fresh to use it
 curl $ASMCLI_INSTALL_URL > $ASMCLI_CMD
